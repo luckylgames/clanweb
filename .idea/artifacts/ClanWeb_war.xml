@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ClanWeb:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="ClanWeb.war">
+      <element id="artifact" artifact-name="ClanWeb:war exploded" />
+    </root>
+  </artifact>
+</component>

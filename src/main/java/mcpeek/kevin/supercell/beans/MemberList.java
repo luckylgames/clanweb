@@ -2,7 +2,10 @@ package mcpeek.kevin.supercell.beans;
 
 import java.util.List;
 
-public interface MemberList {
+interface MemberList {
     List getMembers();
-    void setMembers(List members);
+    boolean add(ClanMember member);
+    boolean remove(ClanMember member);
+    boolean isEmpty();
+    void setMembers(List<ClanMember> members);
 }

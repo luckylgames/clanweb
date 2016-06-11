@@ -10,13 +10,21 @@ public class MemberListJSONArray implements Serializable, MemberList {
 
     public MemberListJSONArray() {}
 
+    public boolean add(ClanMember member) {
+        return members.add(member);
+    }
+
+    public boolean remove(ClanMember member) {
+        return members.remove(member);
+    }
+
     public JSONArray getMembers() {
         return members;
     }
 
-    public void setMembers(List members) {
-        if (isValidJSONArray(members))
-            this.members.addAll(members);
+    public void setMembers(List<ClanMember> listToAdd) {
+        if (isValidJSONArray(listToAdd))
+            members.addAll(listToAdd);
         else
             this.members = new JSONArray();
     }
@@ -25,10 +33,7 @@ public class MemberListJSONArray implements Serializable, MemberList {
         return members.isEmpty();
     }
 
-    private boolean isValidJSONArray(List testList) {
-        if (testList instanceof JSONArray && testList != null) {
-            return true;
-        }
-        return false;
+    private boolean isValidJSONArray(List<ClanMember> testList) {
+        return testList != null && testList instanceof JSONArray;
     }
 }

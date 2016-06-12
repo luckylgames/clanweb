@@ -8,7 +8,9 @@ import java.util.List;
 public class MemberListJSONArray implements Serializable, MemberList {
     private JSONArray members;
 
-    public MemberListJSONArray() {}
+    public MemberListJSONArray() {
+        members = new JSONArray();
+    }
 
     public boolean add(ClanMember member) {
         return members.add(member);
@@ -19,11 +21,11 @@ public class MemberListJSONArray implements Serializable, MemberList {
     }
 
     public JSONArray getMembers() {
-        return members;
+        return (members == null) ? new JSONArray() : members;
     }
 
     public void setMembers(List<ClanMember> listToAdd) {
-        if (isValidJSONArray(listToAdd))
+        if (isValidJSONArrayOfClanMembers(listToAdd))
             members.addAll(listToAdd);
         else
             this.members = new JSONArray();
@@ -33,7 +35,17 @@ public class MemberListJSONArray implements Serializable, MemberList {
         return members.isEmpty();
     }
 
-    private boolean isValidJSONArray(List<ClanMember> testList) {
-        return testList != null && testList instanceof JSONArray;
+    private boolean isValidJSONArrayOfClanMembers(List<ClanMember> testList) {
+        int validElements = 0;
+        if(testList != null && testList instanceof JSONArray) {
+            for (ClanMember testMember : testList)
+                if (isValidClanMember(testMember))
+                    validElements += 1;
+        }
+        return testList != null && validElements == testList.size();
+    }
+
+    private boolean isValidClanMember(Object testClanMember) {
+        return testClanMember != null && testClanMember instanceof ClanMember;
     }
 }

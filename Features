@@ -1,0 +1,14 @@
+1. Clan Ban List / Departure List
+2. Member List
+3. Admin Page
+4. Clan War Matching Calculator
+5. Contact Members through text, Facebook, etc.
+6. Member update page
+7. Link to Facebook group
+8. Individual War stats (May not be possible except through manually updating stats)
+
+Supercell WebService:
+- Poll on a schedule
+- Place into data store
+-- Update timestamp
+-- If user record isn't updated during check-in periord, add record to departure table

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MemberListJSONArrayTest {
@@ -28,7 +29,6 @@ public class MemberListJSONArrayTest {
 
     @Before
     public void setUp() throws Exception {
-        spyMembers = new JSONArray();
         member1 = new ClanMember();
         member2 = new ClanMember();
         member3 = new ClanMember();
@@ -38,24 +38,24 @@ public class MemberListJSONArrayTest {
     public void setMembers_emptyJSONArray() throws Exception {
         memberListJSONArray.setMembers(spyMembers);
 
-        assertEquals(memberListJSONArray.getMembers().isEmpty(), true);
-        assertEquals(memberListJSONArray.isEmpty(), true);
+        assertTrue(memberListJSONArray.getMembers().isEmpty());
+        assertTrue(memberListJSONArray.isEmpty());
     }
 
     @Test
     public void setMembers_nullJSONArray() throws Exception {
         memberListJSONArray.setMembers((List<ClanMember>) null);
 
-        assertEquals(memberListJSONArray.getMembers().isEmpty(), true);
-        assertEquals(memberListJSONArray.isEmpty(), true);
+        assertTrue(memberListJSONArray.getMembers().isEmpty());
+        assertTrue(memberListJSONArray.isEmpty());
     }
 
     @Test
     public void setMembers_nonJSONArray() throws Exception {
         memberListJSONArray.setMembers(new ArrayList<ClanMember>());
 
-        assertEquals(memberListJSONArray.getMembers().isEmpty(), true);
-        assertEquals(memberListJSONArray.isEmpty(), true);
+        assertTrue(memberListJSONArray.getMembers().isEmpty());
+        assertTrue(memberListJSONArray.isEmpty());
     }
 
     @Test
@@ -66,9 +66,9 @@ public class MemberListJSONArrayTest {
         memberListJSONArray.setMembers(spyMembers);
 
         JSONArray temp = memberListJSONArray.getMembers();
-        assertEquals(true, temp.isEmpty());
-        assertEquals(true, memberListJSONArray.getMembers().isEmpty());
-        assertEquals(true, memberListJSONArray.isEmpty());
+        assertTrue(temp.isEmpty());
+        assertTrue(memberListJSONArray.getMembers().isEmpty());
+        assertTrue(memberListJSONArray.isEmpty());
     }
 
     @Test
@@ -82,7 +82,7 @@ public class MemberListJSONArrayTest {
         Mockito.verify(spyMembers).add(member1);
         Mockito.verify(spyMembers).add(member2);
         Mockito.verify(spyMembers).add(member3);
-        assertEquals(memberListJSONArray.getMembers(), spyMembers);
+        assertTrue(memberListJSONArray.getMembers().contains(member1));
         assertEquals(3, spyMembers.size());
     }
 }

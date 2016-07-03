@@ -8,6 +8,17 @@ public class UrlContainer {
     private URI mediumImageURL;
     private URI largeImageURL;
 
+    public UrlContainer() {
+        try {
+            smallImageURL = new URI("");
+            mediumImageURL = new URI("");
+            largeImageURL = new URI("");
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public  String getSmallImageURL() {
         return convertURIToString(smallImageURL);
     }
@@ -34,11 +45,13 @@ public class UrlContainer {
 
     private URI convertStringToURI(String urlString) {
         try {
-            return new URI(urlString);
+            if (urlString != null)
+                return new URI(urlString);
+            else
+                return new URI("");
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-
         return URI.create("");
     }
 

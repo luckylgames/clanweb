@@ -21,7 +21,24 @@ public class Clan implements Serializable {
 	private String description;
 	private MemberList memberList;
 	
-	public Clan() {}
+	public Clan() {
+		String tag = new String();
+		String name = new String();;
+		Location location = new Location();
+		UrlContainer badgeUrls = new UrlContainer();
+		Integer	clanLevel = new Integer(0);
+		Integer clanPoints = new Integer(0);
+		Integer numberOfMembers = new Integer(0);
+		String entranceType = new String();;
+		Integer requiredTrophies = new Integer(0);
+		String warFrequency = new String();;
+		Integer	warWinStreak = new Integer(0);
+		Integer warWins = new Integer(0);
+		Integer warTies = new Integer(0);
+		Integer warLosses = new Integer(0);
+		Boolean isWarLogPublic;
+		String description = new String();
+	}
 
 	public String getTag() {
 		return tag;

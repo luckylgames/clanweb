@@ -8,7 +8,12 @@ public class Location implements Serializable{
 	private Boolean isCountry;
 	private String countryCode;
 
-	public Location() {}
+	public Location() {
+		id = new Integer(0);
+		name = new String();
+		isCountry = new Boolean(false);
+		countryCode = new String();
+	}
 
 	public Integer getId() {
 		return id;

@@ -7,7 +7,11 @@ public class League implements Serializable{
     private String name;
     private UrlContainer iconUrls;
 
-    public League() {}
+    public League() {
+        id = new Integer(0);
+        name = new String();
+        iconUrls = new UrlContainer();
+    }
 
     public UrlContainer getIconUrls() {
         return iconUrls;

@@ -11,10 +11,21 @@ public class ClanMember implements Serializable{
     private String role;
     private Integer clanRank;
     private Integer previousClanRank;
-    private Integer DonationsGiven;
-    private Integer DonationsReceived;
+    private Integer donationsGiven;
+    private Integer donationsReceived;
 
-    ClanMember() {}
+    ClanMember() {
+        tag = new String();
+        name = new String();
+        experienceLevel = new Integer(0);
+        league = new League();
+        numberOfTrophies = new Integer(0);
+        role = new String();
+        clanRank = new Integer(0);
+        previousClanRank = new Integer(0);
+        donationsGiven = new Integer(0);
+        donationsReceived = new Integer(0);
+    }
 
     public String getTag() {
         return tag;
@@ -81,18 +92,18 @@ public class ClanMember implements Serializable{
     }
 
     public Integer getDonationsGiven() {
-        return DonationsGiven;
+        return donationsGiven;
     }
 
     public void setDonationsGiven(Integer donationsGiven) {
-        DonationsGiven = donationsGiven;
+        this.donationsGiven = donationsGiven;
     }
 
     public Integer getDonationsReceived() {
-        return DonationsReceived;
+        return donationsReceived;
     }
 
     public void setDonationsReceived(Integer donationsReceived) {
-        DonationsReceived = donationsReceived;
+        this.donationsReceived = donationsReceived;
     }
 }
